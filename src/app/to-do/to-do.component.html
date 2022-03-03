@@ -1,1 +1,12 @@
-<p>to-do works!</p>
+<div id="container">
+  <h1>Add ToDo List</h1>
+  <div id="input">
+    <input type="text" name="" id="inputField" placeholder="*ngFor Complete" [(ngModel)]="inputField" (keyup)="onKey($event)">
+    <button type="submit" id="submitButton" (click)="submit()" [disabled]="disable">Add List</button>
+  </div>
+  <div *ngIf="temp;">
+    <div *ngFor="let li of todolist | slice:1; let i=index" id="output">
+        <p id="task" (click)="remove(li,i+1)">{{li}}</p>
+    </div>
+  </div>
+</div>
